@@ -15,6 +15,8 @@ export const getChars = () => dispatch => {
     dispatch({ type: FETCHING});
     axios
         .get("https://swapi.co/api/people")
-        .then(res => dispatch({ type: SUCCESS, payload: res.data }))
+        // .then(res => console.log("res data:", res.data.results))
+        .then(res => dispatch({ type: SUCCESS, payload: res.data.results }))
+        // .catch(err => console.log("err", err))
         .catch(err => dispatch({ type: FAILURE, payload: err }))
 }
